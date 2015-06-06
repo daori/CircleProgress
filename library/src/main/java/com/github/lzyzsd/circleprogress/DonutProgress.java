@@ -17,14 +17,16 @@ import android.view.View;
  * Created by bruce on 14-10-30.
  */
 public class DonutProgress extends View {
-    private Paint finishedPaint;
-    private Paint unfinishedPaint;
-    private Paint innerCirclePaint;
+    protected Paint finishedPaint;
+    protected Paint unfinishedPaint;
+    protected Paint innerCirclePaint;
     protected Paint textPaint;
     protected Paint innerBottomTextPaint;
+    protected float finishedStrokeWidth;
+    protected float unfinishedStrokeWidth;
 
-    private RectF finishedOuterRect = new RectF();
-    private RectF unfinishedOuterRect = new RectF();
+    protected RectF finishedOuterRect = new RectF();
+    protected RectF unfinishedOuterRect = new RectF();
 
     private float textSize;
     private int textColor;
@@ -33,8 +35,6 @@ public class DonutProgress extends View {
     private int max;
     private int finishedStrokeColor;
     private int unfinishedStrokeColor;
-    private float finishedStrokeWidth;
-    private float unfinishedStrokeWidth;
     private int innerBackgroundColor;
     private String prefixText = "";
     private String suffixText = "%";
@@ -111,6 +111,7 @@ public class DonutProgress extends View {
         finishedPaint.setStyle(Paint.Style.STROKE);
         finishedPaint.setAntiAlias(true);
         finishedPaint.setStrokeWidth(finishedStrokeWidth);
+        finishedPaint.setStrokeCap(Paint.Cap.ROUND);
 
         unfinishedPaint = new Paint();
         unfinishedPaint.setColor(unfinishedStrokeColor);
@@ -173,7 +174,7 @@ public class DonutProgress extends View {
         this.invalidate();
     }
 
-    private float getProgressAngle() {
+    protected float getProgressAngle() {
         return getProgress() / (float) max * 360f;
     }
 

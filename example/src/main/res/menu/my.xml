@@ -16,4 +16,9 @@
           android:title="@string/action_arc_tab"
           android:orderInCategory="100"
           app:showAsAction="never" />
+
+    <item android:id="@+id/netzme_loading"
+          android:title="@string/netzme_loading"
+          android:orderInCategory="100"
+          app:showAsAction="never" />
 </menu>

@@ -1,17 +1,17 @@
 package com.github.lzyzsd.circleprogressexample;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 import com.github.lzyzsd.circleprogress.ArcProgress;
 import com.github.lzyzsd.circleprogress.CircleProgress;
 import com.github.lzyzsd.circleprogress.DonutProgress;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MyActivity extends ActionBarActivity {
     private Timer timer;
@@ -66,6 +66,9 @@ public class MyActivity extends ActionBarActivity {
                 return true;
             case R.id.action_arch_tab:
                 startActivity(new Intent(this, ArcInFragment.class));
+                return true;
+            case R.id.netzme_loading:
+                startActivity(new Intent(this, NetzmeActivity.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);

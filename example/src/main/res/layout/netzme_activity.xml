@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:custom="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/curiousBlue">
+
+    <com.github.lzyzsd.circleprogress.DonutProgress
+        android:id="@+id/custom_progress"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_centerInParent="true"
+        custom:donut_progress="0"
+        custom:donut_text_size="1sp"
+        custom:donut_finished_color="@color/white"
+        custom:donut_unfinished_color="@color/cornFlower"
+        custom:donut_finished_stroke_width="9dp"
+        custom:donut_unfinished_stroke_width="9dp"
+        custom:donut_max="300"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/custom_progress"
+        android:layout_alignTop="@id/custom_progress"
+        android:textColor="@android:color/black"
+        android:text="timer"/>
+
+    <TextView
+        android:id="@+id/time_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="lalal"/>
+
+
+
+    <RelativeLayout
+        android:id="@+id/relative_progressbar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/custom_progress"
+        android:layout_centerInParent="true">
+        <com.github.lzyzsd.circleprogressexample.netzme.CustomDonutProgress
+            android:id="@+id/custom_progress2"
+
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_centerInParent="true"
+            custom:donut_progress="0"
+            custom:donut_text_size="1sp"
+            custom:donut_finished_color="@color/white"
+            custom:donut_unfinished_color="@color/cornFlower"
+            custom:donut_finished_stroke_width="9dp"
+            custom:donut_unfinished_stroke_width="9dp"
+            custom:donut_max="300"/>
+
+        <TextView
+            android:id="@+id/time_text_view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="lalal"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/relative_progressbar2"
+        android:layout_alignBottom="@id/relative_progressbar2"
+        android:textColor="@android:color/black"
+        android:text="animation"/>
+
+</RelativeLayout>
