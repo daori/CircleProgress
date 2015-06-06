@@ -10,7 +10,7 @@
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_centerInParent="true"
-        custom:donut_progress="0"
+        custom:donut_progress="1"
         custom:donut_text_size="1sp"
         custom:donut_finished_color="@color/white"
         custom:donut_unfinished_color="@color/cornFlower"
@@ -46,7 +46,7 @@
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_centerInParent="true"
-            custom:donut_progress="0"
+            custom:donut_progress="1"
             custom:donut_text_size="1sp"
             custom:donut_finished_color="@color/white"
             custom:donut_unfinished_color="@color/cornFlower"
@@ -54,12 +54,20 @@
             custom:donut_unfinished_stroke_width="9dp"
             custom:donut_max="300"/>
 
-        <TextView
-            android:id="@+id/time_text_view2"
+        <ImageView
+            android:id="@+id/icon_success"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@drawable/icon_registration_success"
             android:layout_centerInParent="true"
-            android:text="lalal"/>
+            android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/icon_lock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_lock"
+            android:layout_centerInParent="true"/>
     </RelativeLayout>
 
     <TextView

@@ -3,7 +3,11 @@ package com.github.lzyzsd.circleprogressexample;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.lzyzsd.circleprogress.DonutProgress;
@@ -22,7 +26,8 @@ public class NetzmeActivity extends Activity{
     private int second = 0;
     private int x;
     private int y=0;
-    private TextView timeTextView2;
+    private ImageView iconSuccess;
+    private ImageView iconLock;
 
 
     @Override
@@ -33,12 +38,17 @@ public class NetzmeActivity extends Activity{
         netzmeProgress = (DonutProgress) findViewById(R.id.custom_progress);
         netzmeProgress2 = (DonutProgress) findViewById(R.id.custom_progress2);
         timeTextView = (TextView) findViewById(R.id.time_text_view);
-        timeTextView2 = (TextView) findViewById(R.id.time_text_view2);
+        iconSuccess = (ImageView) findViewById(R.id.icon_success);
+        iconLock = (ImageView) findViewById(R.id.icon_lock);
 
-        ObjectAnimator animation = ObjectAnimator.ofInt(netzmeProgress2, "progress",0,300);// 500 : jumlah target dalam 30detik
+        final Animation hyperspaceJumpAnimation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump);
+        hyperspaceJumpAnimation.setDuration(1000);
+        iconLock.startAnimation(hyperspaceJumpAnimation);
+
+        ObjectAnimator animation = ObjectAnimator.ofInt(netzmeProgress2, "progress",1,300);// 500 : jumlah target dalam 30detik
         animation.setDuration(30000); //in milliseconds
         animation.setInterpolator(new AccelerateInterpolator());
-        animation.setRepeatCount(2);
+        animation.setStartDelay(1000);
         animation.start();
         netzmeProgress2.clearAnimation();
 
@@ -56,16 +66,18 @@ public class NetzmeActivity extends Activity{
                         if(x % 1000 == 0){
                             y++;
                             timeTextView.setText(String.valueOf(y) + "s");
-                            timeTextView2.setText(String.valueOf(y) + "s");
                         }
 
                         if(y == 30){
                             y=0;
+                            iconSuccess.startAnimation(hyperspaceJumpAnimation);
+                            iconSuccess.setVisibility(View.VISIBLE);
+                            iconLock.setVisibility(View.INVISIBLE);
                         }
                     }
                 });
             }
-        }, 0, 100);
+        }, 1000, 100);
 
 
 
